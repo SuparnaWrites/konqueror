@@ -90,8 +90,6 @@ static KonqViewFactory tryLoadingService(KService::Ptr service)
 KonqViewFactory KonqFactory::createView(const QString &serviceType,
                                         const QString &serviceName,
                                         KService::Ptr *serviceImpl,
-                                        KService::List *partServiceOffers,
-                                        KService::List *appServiceOffers,
                                         bool forceAutoEmbed)
 {
     qCDebug(KONQUEROR_LOG) << "Trying to create view for" << serviceType << serviceName;
@@ -101,13 +99,6 @@ KonqViewFactory KonqFactory::createView(const QString &serviceType,
 
     // Query the trader
     getOffers(serviceType, &offers, &appOffers);
-
-    if (partServiceOffers) {
-        (*partServiceOffers) = offers;
-    }
-    if (appServiceOffers) {
-        (*appServiceOffers) = appOffers;
-    }
 
     // We ask ourselves whether to do it or not only if no service was specified.
     // If it was (from the View menu or from RMB + Embedding service), just do it.

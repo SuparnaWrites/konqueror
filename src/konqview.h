@@ -96,8 +96,6 @@ public:
              KonqFrame *viewFrame,
              KonqMainWindow *mainWindow,
              const KService::Ptr &service,
-             const KService::List &partServiceOffers,
-             const KService::List &appServiceOffers,
              const QString &serviceType,
              bool passiveMode);
 
